@@ -5,8 +5,9 @@
 		<title>hello_react</title>
 	</head>
 	<body>
-		<!-- 准备好一个容器，用于让react渲染用 -->
+		<!-- 准备好一个容器-->
 		<div id="test"></div>
+
 		<!-- 引入react核心库 -->
 		<script type="text/javascript" src="../js/react.development.js"></script>
 		<!-- 引入react-dom，用于支持react操作DOM -->
@@ -18,11 +19,15 @@
 		<script type="text/babel"> 
 			
 			//1.创建虚拟DOM
-			const VDOM = <h1>Hello,React</h1> //此处一定不要写引号，因为VDOM不是字符串！！！
-			
-			//2.使用react语法将VDOM转为真实DOM，插入页面
+			const VDOM = (
+				<h1 id="title">
+					<span>Hello,React</span>
+				</h1>
+			)
+
+			//2.渲染虚拟DOM到页面
 			ReactDOM.render(VDOM,document.getElementById('test'))
-			
+
 		</script>
 	</body>
 </html>
