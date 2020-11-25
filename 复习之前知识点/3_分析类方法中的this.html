@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<script type="text/javascript" >
-			class Demo {
+			/* class Demo {
 				show(){
 					//ES6类中所有方法自动开启了严格模式
 					console.log('我是一些信息',this);
@@ -14,7 +14,19 @@
 			}
 			const d = new Demo()
 			const x = d.show
+			x() */
+
+			let obj = {
+				name:'老刘',
+				age:18,
+				b(){
+					'use strict'
+					console.log(this);
+				}
+			}
+			const x = obj.b
 			x()
+			
 		</script>
 	</body>
 </html>
