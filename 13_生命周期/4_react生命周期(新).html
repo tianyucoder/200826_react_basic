@@ -2,36 +2,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<title>react生命周期(旧)</title>
+		<title>react生命周期(新)</title>
 	</head>
 	<body>
 		<!-- 准备好一个容器-->
 		<div id="test"></div>
 
 		<!-- 引入react核心库 -->
-		<script type="text/javascript" src="../js/react.development.js"></script>
+		<script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
 		<!-- 引入react-dom，用于支持react操作DOM -->
-		<script type="text/javascript" src="../js/react-dom.development.js"></script>
+		<script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
 		<!-- 引入babel，用于将jsx转为js -->
-		<script type="text/javascript" src="../js/babel.min.js"></script>
+		<script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
 
 		<script type="text/babel"> 
-			/* 
-				1. 初始化阶段: 由ReactDOM.render()触发---初次渲染
-									1.	constructor()
-									2.	componentWillMount()
-									3.	render()
-									4.	componentDidMount() =====> 常用
-													一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息
-				2. 更新阶段: 由组件内部this.setSate()或父组件render触发this.forceUpdate()
-									1.	shouldComponentUpdate() 注意：强制更新不走“阀门”
-									2.	componentWillUpdate()
-									3.	render()
-									4.	componentDidUpdate()
-				3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发
-									1.	componentWillUnmount()  =====> 常用
-													一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息
-		*/
 
 			//定义组件
 			class Sum extends React.Component{
@@ -60,7 +44,7 @@
 				}
 
 				//组件将要挂载---调1次
-				componentWillMount(){
+				UNSAFE_componentWillMount(){
 					console.log('---componentWillMount---');
 				}
 
@@ -81,7 +65,7 @@
 				}
 
 				//组件将要更新----调用n次，n是更新的次数
-				componentWillUpdate(){
+				UNSAFE_componentWillUpdate(){
 					console.log('---componentWillUpdate---');
 				}
 
@@ -90,7 +74,7 @@
 					console.log('---componentDidUpdate----');
 				}
 
-				componentWillReceiveProps(){
+				UNSAFE_componentWillReceiveProps(){
 					console.log('---componentWillReceiveProps---');
 				}
 				
@@ -99,7 +83,7 @@
 					console.log('---render---');
 					return(
 						<div>
-							<h2>当前求和为：{this.state.count}，传过来的值是{this.props.a}</h2>
+							<h2>当前求和为：{this.state.count}</h2>
 							<button onClick={this.add}>点我+1</button>
 							<button onClick={this.death}>卸载组件</button>
 							<button onClick={this.force}>强制更新一下</button>
@@ -108,24 +92,8 @@
 				}
 			}
 			
-			class Car extends React.Component{
-				state = {carName:'阿特兹'}
-				changeCar = ()=>{
-					this.setState({carName:"奔驰c63"})
-				}
-				render(){
-					return (
-						<div>
-							<h2>我是Car组件，车的名字是：{this.state.carName}</h2>
-							<button onClick={this.changeCar}>换车</button>
-							<Sum a={this.state.carName}/>
-						</div>
-					)
-				}
-			}
-			
 			//渲染组件
-			ReactDOM.render(<Car/>,document.getElementById('test'))
+			ReactDOM.render(<Sum/>,document.getElementById('test'))
 		</script>
 	</body>
 </html>
