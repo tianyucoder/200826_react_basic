@@ -6,12 +6,24 @@
 	</head>
 	<body>
 		<script type="text/javascript" >
-			let a = 'name'
+			/* let a = 'name'
 			let b = 'tom'
 			let obj = {} // {name:"tom"}
 
 			obj = {[a]:b}
-			console.log(obj);
+			console.log(obj); */
+
+			//小题
+			let obj1 = {a:1,b:2}
+			let obj2 = {c:3,d:4}
+			let obj3 = {}
+
+			obj3[obj1] = 'tom'
+			obj3[obj2] = 18
+			
+			console.log(obj3[obj1]); // 18 tom 
+			console.log(obj3[obj2]); // 18 
+			
 		</script>
 	</body>
 </html>
