@@ -18,18 +18,20 @@
 		<script type="text/babel"> 
 			//定义组件
 			class Life extends React.Component{
+				//生命周期 <=> 生命周期函数 <=> 生命周期钩子函数 <=> 生命周期钩子
 
 				state = {opacity:1}
 
 				death = ()=>{
 					ReactDOM.unmountComponentAtNode(document.getElementById('test'))
 				}
-
+				
+				//componentWillUnmount--组件将要卸载，由react去调用，只调1次
 				componentWillUnmount(){
 					clearInterval(this.timer)
 				}
 
-				//componentDidMount--组件挂在完毕后，由react去调用，只调一次
+				//componentDidMount--组件挂在完毕后，由react去调用，只调1次
 				componentDidMount(){
 					console.log('---componentDidMount---');
 					this.timer = setInterval(()=>{
@@ -43,6 +45,7 @@
 					},200)
 				}
 
+				//render--组件初次渲染+状态更新，由react去调用，只调1+n次
 				render(){
 					console.log('---render---');
 					//获取透明度
