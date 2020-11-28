@@ -43,42 +43,14 @@
 					this.forceUpdate()
 				}
 
-				//组件将要挂载---调1次
-				UNSAFE_componentWillMount(){
-					console.log('---componentWillMount---');
-				}
+				//从props中获取派生的状态
+				/* static getDerivedStateFromProps(props,state){
+					console.log('---getDerivedStateFromProps---',props,state);
+					return props
+				} */
 
-				//组件挂载完毕---调1次
-				componentDidMount(){
-					console.log('---componentDidMount---');
-				}
-
-				//组件将要卸载---调1次
-				componentWillUnmount(){
-					console.log('---componentWillUnmount---');
-				}
 				
-				//组件更新的“阀门”
-				shouldComponentUpdate(){
-					console.log('---shouldComponentUpdate---');
-					return true
-				}
-
-				//组件将要更新----调用n次，n是更新的次数
-				UNSAFE_componentWillUpdate(){
-					console.log('---componentWillUpdate---');
-				}
-
-				//组件更新完毕----调用n次，n是更新的次数
-				componentDidUpdate(){
-					console.log('---componentDidUpdate----');
-				}
-
-				//组件将要接收参数
-				UNSAFE_componentWillReceiveProps(){
-					console.log('---componentWillReceiveProps---');
-				}
-				
+			
 				//组件初次渲染+更新---调1+n次
 				render(){
 					console.log('---render---');
@@ -94,7 +66,7 @@
 			}
 			
 			//渲染组件
-			ReactDOM.render(<Sum/>,document.getElementById('test'))
+			ReactDOM.render(<Sum count={108}/>,document.getElementById('test'))
 		</script>
 	</body>
 </html>
