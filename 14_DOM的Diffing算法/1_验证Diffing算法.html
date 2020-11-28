@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>1_验证Diffing算法</title>
+</head>
+<body>
+<div id="example"></div>
+<!-- 1.引入react核心库 -->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<!-- 2.引入react-dom，用于支持react的DOM操作 -->
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!-- 3.引入babel，解析jsx为js -->
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+	//验证DOM Diffing算法
+  class Time extends React.Component {
+    state = {
+      date: new Date()
+    }
+
+    componentDidMount () {
+      setInterval(() => {
+        this.setState({date: new Date()})
+      },1000)
+    }
+
+    render () {
+      return (
+        <div>
+					<h1>hello,0826</h1>
+					<input type="text" placeholder="随便输入一些内容"/>
+					<h3>
+						<input type="text"/>
+						现在是：{this.state.date.toTimeString()}
+					</h3>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<Time/>,document.getElementById('example'))
+</script>
+</body>
+</html>
