@@ -49,7 +49,14 @@
 					return props
 				} */
 
-				
+				getSnapshotBeforeUpdate(){
+					console.log('---getSnapshotBeforeUpdate---');
+					return 'atguigu'
+				}
+
+				componentDidUpdate(preProps,preState,x){
+					console.log('---componentDidUpdate---',preProps,preState,x);
+				}
 			
 				//组件初次渲染+更新---调1+n次
 				render(){
@@ -66,7 +73,7 @@
 			}
 			
 			//渲染组件
-			ReactDOM.render(<Sum count={108}/>,document.getElementById('test'))
+			ReactDOM.render(<Sum age={18}/>,document.getElementById('test'))
 		</script>
 	</body>
 </html>
